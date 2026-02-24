@@ -2,58 +2,54 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>loliimilk · свежо</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background: linear-gradient(145deg, #1a0b2e 0%, #2d1b3a 40%, #1e2a3a 100%);
-    font-family:'Inter','Segoe UI',system-ui,sans-serif;
-    overflow:hidden;
-    padding: 2rem 1rem;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.scale-wrapper {
-    transform-origin: top center;
-    transition: transform 0.2s ease;
-    display:flex;
-    justify-content:center;
-    width:100%;
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #1a0b2e 0%, #2d1b3a 40%, #1e2a3a 100%);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    /* padding: 1rem; */
 }
 
 .card {
-    width: 620px;
-    max-width:100%;
-    background: rgba(18,25,45,0.7);
+    width: 100%;
+    max-width: 680px;
+    background: rgba(18, 25, 45, 0.7);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-radius: 56px;
-    padding: 2.8rem 2.2rem 3rem;
-    box-shadow: 0 30px 50px rgba(0,180,255,0.25),
-                0 10px 25px rgba(255,80,200,0.2),
-                inset 0 1px 2px rgba(255,255,255,0.1);
-    border:1px solid rgba(255,120,200,0.25);
+    border-radius: 2.5rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 30px 50px rgba(0, 180, 255, 0.25),
+                0 10px 25px rgba(255, 80, 200, 0.2),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 120, 200, 0.25);
+    margin: 0 auto;
 }
 
 .handle {
-    text-align:center;
-    margin-bottom:2.5rem;
-    position:relative;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .handle-top {
-    font-size:1.8rem;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
     color: #ffb8e0;
     text-shadow: 0 0 15px #ff69b4, 0 0 30px #9370db;
-    letter-spacing: 8px;
-    margin-bottom: -0.5rem;
-    opacity:0.9;
+    letter-spacing: 0.5rem;
+    opacity: 0.9;
     animation: sparkleGlow 3s infinite;
+    margin-bottom: -0.2rem;
 }
 
 .handle-top span {
@@ -66,62 +62,280 @@ body {
 .handle-top span:nth-child(4) { animation-delay: 1.2s; }
 
 .handle h1 {
-    font-size:4.2rem;
-    font-weight:800;
-    background: linear-gradient(135deg,#ff99cc,#aaccff,#99ffdd,#ffcc99);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    line-height:1.1;
-    text-shadow:0 0 25px #b380ff,0 0 40px #4d88ff;
-    letter-spacing:2px;
+    font-size: clamp(2.8rem, 10vw, 4.2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff99cc, #aaccff, #99ffdd, #ffcc99);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.1;
+    text-shadow: 0 0 25px #b380ff, 0 0 40px #4d88ff;
+    letter-spacing: 2px;
     margin: 0.2rem 0;
-    position:relative;
-    z-index:2;
+    word-break: break-word;
 }
 
-/* ОБНОВЛЕНО: волнистый нижний ряд */
 .handle-bottom {
-    font-size:1.8rem;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
     color: #ffd5ff;
-    text-shadow: 0 0 15px #ff7ac7, 0 0 30px #b47aff, 0 0 45px #6e4aff;
-    letter-spacing: 6px;
-    margin-top: -0.5rem;
+    text-shadow: 0 0 15px #ff7ac7, 0 0 30px #b47aff;
+    letter-spacing: 0.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.2rem;
+    gap: 0.2rem 0.1rem;
     flex-wrap: wrap;
-    filter: drop-shadow(0 0 10px #ffa0e0);
+    margin-top: -0.2rem;
 }
 
-.handle-bottom .wave-char {
+.handle-bottom .star-char {
     display: inline-block;
-    animation: wave 2.5s ease-in-out infinite;
+    animation: starTwinkle 3s ease-in-out infinite;
     transform-origin: center;
+    filter: drop-shadow(0 0 8px #ffb3f0);
 }
 
-/* Индивидуальные задержки для создания волны */
-.handle-bottom .wave-char:nth-child(1) { animation-delay: 0s; }
-.handle-bottom .wave-char:nth-child(2) { animation-delay: 0.1s; }
-.handle-bottom .wave-char:nth-child(3) { animation-delay: 0.2s; }
-.handle-bottom .wave-char:nth-child(4) { animation-delay: 0.3s; }
-.handle-bottom .wave-char:nth-child(5) { animation-delay: 0.4s; }
-.handle-bottom .wave-char:nth-child(6) { animation-delay: 0.5s; }
-.handle-bottom .wave-char:nth-child(7) { animation-delay: 0.6s; }
-.handle-bottom .wave-char:nth-child(8) { animation-delay: 0.7s; }
-.handle-bottom .wave-char:nth-child(9) { animation-delay: 0.8s; }
-.handle-bottom .wave-char:nth-child(10) { animation-delay: 0.9s; }
-.handle-bottom .wave-char:nth-child(11) { animation-delay: 1.0s; }
-.handle-bottom .wave-char:nth-child(12) { animation-delay: 1.1s; }
-.handle-bottom .wave-char:nth-child(13) { animation-delay: 1.2s; }
-.handle-bottom .wave-char:nth-child(14) { animation-delay: 1.3s; }
-.handle-bottom .wave-char:nth-child(15) { animation-delay: 1.4s; }
+.handle-bottom .moon-char {
+    display: inline-block;
+    animation: moonGlide 4s ease-in-out infinite;
+    transform-origin: center;
+    filter: drop-shadow(0 0 12px #c68eff);
+}
 
-/* Анимации */
+.handle-bottom .star-char:nth-child(1) { animation-delay: 0s; }
+.handle-bottom .star-char:nth-child(2) { animation-delay: 0.15s; }
+.handle-bottom .star-char:nth-child(3) { animation-delay: 0.3s; }
+.handle-bottom .star-char:nth-child(4) { animation-delay: 0.45s; }
+.handle-bottom .star-char:nth-child(5) { animation-delay: 0.6s; }
+.handle-bottom .star-char:nth-child(11) { animation-delay: 1.2s; }
+.handle-bottom .star-char:nth-child(12) { animation-delay: 1.35s; }
+
+.handle-bottom .moon-char:nth-child(6) { animation-delay: 0.2s; }
+.handle-bottom .moon-char:nth-child(7) { animation-delay: 0.6s; }
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.link-item {
+    width: 100%;
+    border-radius: 60px;
+    background: rgba(10, 15, 30, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1.5px solid rgba(200, 130, 250, 0.4);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3), 0 0 15px rgba(150, 100, 255, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.link-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.3), 0 0 30px #bf7fff;
+    border-color: #ffa0e0;
+}
+
+.link-item.touch-active {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 0 rgba(0, 0, 0, 0.35), 0 0 35px #bf7fff;
+    filter: brightness(1.1);
+}
+
+.link-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    font-weight: 600;
+    color: #f0eaff;
+    border-radius: inherit;
+    width: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.link-item a i {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    width: 2rem;
+    text-align: center;
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+.fa-youtube { color: #ff5e5e; }
+.fa-twitch { color: #c77dff; }
+.fa-telegram-plane { color: #7abaff; }
+.fa-tiktok { color: #ffffff; }
+.fa-heart { color: #ff7b9c; }
+.fa-bolt { color: #ffd966; }
+
+.dashed-line {
+    width: 100%;
+    border-top: 3px dashed rgba(200, 150, 255, 0.3);
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.support-group, .telegram-group, .section-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.telegram-group {
+    gap: 0.8rem;
+}
+
+.support-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bda5ff;
+    background: rgba(30, 15, 50, 0.5);
+    padding: 0.2rem 1.2rem;
+    border-radius: 40px;
+    display: inline-block;
+    backdrop-filter: blur(2px);
+    border: 1px solid #9050c0;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+    .support-label {
+        white-space: normal;
+        font-size: 0.8rem;
+    }
+}
+
+.support-label:hover {
+    background: rgba(50, 25, 80, 0.6);
+    border-color: #c07ff0;
+    color: #e6d0ff;
+    box-shadow: 0 0 20px #b07aff;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    background: rgba(120, 180, 255, 0.2);
+    border: 1px solid rgba(120, 180, 255, 0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #aeddff;
+    white-space: nowrap;
+}
+
+.signature {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 600;
+    color: #ffe7f0;
+    padding: 1.2rem 0 0.2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem 0.3rem;
+    flex-wrap: wrap;
+}
+
+.signature .star-char {
+    display: inline-block;
+    filter: drop-shadow(0 0 8px #ff80bf);
+    line-height: 1;
+    animation: starTwinkle 3.5s ease-in-out infinite;
+}
+
+.signature .moon-char {
+    display: inline-block;
+    filter: drop-shadow(0 0 12px #b07aff);
+    line-height: 1;
+    animation: moonGlide 4.5s ease-in-out infinite;
+}
+
+.signature .text {
+    background: linear-gradient(135deg, #ffccff, #c2b0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 0 0.2rem;
+    animation: sparkleGlow 3s infinite;
+}
+
+
+@keyframes starTwinkle {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+        text-shadow: 0 0 8px #ff9ce7, 0 0 15px #bf7aff;
+    }
+    25% {
+        transform: translateY(-3px) scale(1.1);
+        opacity: 1;
+        text-shadow: 0 0 15px #ffb3f0, 0 0 25px #d8a0ff;
+    }
+    50% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+        text-shadow: 0 0 8px #ff9ce7, 0 0 15px #bf7aff;
+    }
+    75% {
+        transform: translateY(3px) scale(0.95);
+        opacity: 0.8;
+        text-shadow: 0 0 12px #ffadf0, 0 0 20px #cc88ff;
+    }
+}
+
+@keyframes moonGlide {
+    0%, 100% {
+        transform: translateX(0) translateY(0) scale(1);
+        filter: drop-shadow(0 0 12px #c68eff);
+        opacity: 0.9;
+    }
+    20% {
+        transform: translateX(-2px) translateY(-2px) scale(1.02);
+        filter: drop-shadow(0 0 20px #b07aff) drop-shadow(0 0 30px #8a6eff);
+        opacity: 1;
+    }
+    40% {
+        transform: translateX(2px) translateY(-1px) scale(1);
+        filter: drop-shadow(0 0 15px #c68eff);
+        opacity: 0.95;
+    }
+    60% {
+        transform: translateX(-1px) translateY(2px) scale(0.98);
+        filter: drop-shadow(0 0 18px #b07aff);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(2px) translateY(1px) scale(1.02);
+        filter: drop-shadow(0 0 22px #c68eff);
+        opacity: 0.95;
+    }
+}
+
 @keyframes sparkleGlow {
-    0%, 100% { opacity:0.7; filter: drop-shadow(0 0 5px #ff99cc); }
-    50% { opacity:1; filter: drop-shadow(0 0 20px #ff66aa) drop-shadow(0 0 40px #aa88ff); }
+    0%, 100% { 
+        opacity: 0.7; 
+        filter: drop-shadow(0 0 5px #ff99cc); 
+    }
+    50% { 
+        opacity: 1; 
+        filter: drop-shadow(0 0 20px #ff66aa) drop-shadow(0 0 40px #aa88ff); 
+    }
 }
 
 @keyframes float {
@@ -129,198 +343,49 @@ body {
     50% { transform: translateY(-5px); }
 }
 
-/* ОБНОВЛЕНО: волновая анимация */
-@keyframes wave {
-    0%, 100% { 
-        transform: translateY(0) scale(1);
-        text-shadow: 0 0 10px #ff9ce7, 0 0 20px #bf7aff;
+@media (max-width: 600px) {
+    .card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 2rem;
     }
-    25% { 
-        transform: translateY(-8px) scale(1.1);
-        text-shadow: 0 0 20px #ffb3f0, 0 0 40px #d8a0ff, 0 0 60px #a06eff;
+
+    .link-item a {
+        padding: 0.9rem 1rem;
     }
-    50% { 
-        transform: translateY(0) scale(1);
-        text-shadow: 0 0 10px #ff9ce7, 0 0 20px #bf7aff;
+
+    .link-item a i {
+        width: 1.8rem;
     }
-    75% { 
-        transform: translateY(8px) scale(0.95);
-        text-shadow: 0 0 15px #ffadf0, 0 0 30px #cc88ff;
-    }
-}
 
-@keyframes twinkle {
-    0%, 100% { opacity:0.8; transform: scale(1); }
-    50% { opacity:1; transform: scale(1.1); text-shadow: 0 0 20px #ffaaff, 0 0 40px #c088ff; }
-}
-
-.sparkle { 
-    font-size:2.2rem; 
-    filter:drop-shadow(0 0 15px #ff80bf); 
-    opacity:0.9; 
-    line-height:0.7;
-}
-
-.links { 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; 
-    gap:1rem; 
-    margin:2rem 0;
-    width:100%;
-}
-
-.link-item {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 60px;
-    background: rgba(10,15,30,0.6);
-    backdrop-filter: blur(4px);
-    border: 1.5px solid rgba(200,130,250,0.4);
-    box-shadow: 0 6px 0 rgba(0,0,0,0.3),0 0 15px rgba(150,100,255,0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.link-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 0 rgba(0,0,0,0.3),0 0 30px #bf7fff;
-    border-color:#ffa0e0;
-}
-
-.link-item.touch-active {
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 12px 0 rgba(0,0,0,0.35),0 0 35px #bf7fff;
-    filter: brightness(1.1);
-}
-
-.link-item a {
-    display:flex; align-items:center; justify-content:center; gap:14px;
-    padding:1rem 2rem; text-decoration:none; font-size:1.4rem; font-weight:600;
-    color:#f0eaff; border-radius:inherit; width:100%;
-}
-.link-item a i { font-size:2rem; width:2.2rem; text-align:center; filter:drop-shadow(0 0 6px currentColor); }
-
-.fa-youtube { color:#ff5e5e; }
-.fa-twitch { color:#c77dff; }
-.fa-telegram-plane { color:#7abaff; }
-.fa-tiktok { color:#ffffff; }
-.fa-heart { color:#ff7b9c; }
-.fa-bolt { color:#ffd966; }
-
-.dashed-line {
-    width: calc(100% + 4.4rem);
-    border-top:3px dashed rgba(200,150,255,0.3);
-    margin: 0.2rem 0rem 0.2rem ;
-    position: relative;
-}
-
-.support-group { 
-    width:100%; 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; 
-    gap:0.9rem;
-}
-
-.support-label {
-    font-size:1rem; 
-    text-transform:uppercase; 
-    letter-spacing:3px; 
-    color:#bda5ff;
-    background:rgba(30,15,50,0.5); 
-    padding:0.2rem 1.5rem; 
-    border-radius:40px;
-    display:inline-block; 
-    backdrop-filter: blur(2px); 
-    border:1px solid #9050c0;
-    cursor:pointer;
-    margin:0 auto;
-    transition: all 0.3s ease;
-}
-
-.support-label:hover {
-    background:rgba(50,25,80,0.6);
-    border-color:#c07ff0;
-    color:#e6d0ff;
-    box-shadow: 0 0 20px #b07aff;
-}
-
-.section-container {
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:1rem;
-}
-
-/* ОБНОВЛЕНО: нижняя подпись тоже с волной */
-.signature { 
-    text-align:center; 
-    font-size:2rem; 
-    font-weight:600; 
-    color:#ffe7f0; 
-    padding:1.2rem 0 0.2rem; 
-    margin-top:1rem; 
-    letter-spacing:1px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.signature .wave-char { 
-    display:inline-block;
-    filter:drop-shadow(0 0 10px #ff80bf); 
-    vertical-align:middle; 
-    line-height:1;
-    animation: wave 3s ease-in-out infinite;
-}
-
-.signature .text {
-    background: linear-gradient(135deg, #ffccff, #c2b0ff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    font-size: 1.8rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    margin: 0 0.5rem;
-    animation: sparkleGlow 3s infinite;
-}
-
-/* Задержки для нижней подписи */
-.signature .wave-char:nth-child(1) { animation-delay: 0s; }
-.signature .wave-char:nth-child(2) { animation-delay: 0.15s; }
-.signature .wave-char:nth-child(3) { animation-delay: 0.3s; }
-.signature .wave-char:nth-child(4) { animation-delay: 0.45s; }
-.signature .wave-char:nth-child(5) { animation-delay: 0.6s; }
-.signature .wave-char:nth-child(6) { animation-delay: 0.75s; }
-.signature .wave-char:nth-child(7) { animation-delay: 0.9s; }
-.signature .wave-char:nth-child(8) { animation-delay: 1.05s; }
-
-@media(max-width:480px){
-    .card{padding:2rem 1.2rem;}
-    .handle h1{font-size:3rem;}
-    .handle-top { font-size:1.4rem; letter-spacing: 4px; }
-    .handle-bottom { font-size:1.4rem; letter-spacing: 3px; }
-    .link-item a{font-size:1.2rem; padding:0.9rem 1.2rem;}
-    .link-item a i{font-size:1.7rem;}
-    .signature{font-size:1.6rem; gap:0.3rem;}
-    .signature .text { font-size:1.4rem; }
     .dashed-line {
-        width: calc(100% + 2.4rem);
-        margin: 1.2rem -1.2rem;
+        margin: 1rem 0;
+    }
+
+    .handle-bottom {
+        gap: 0.1rem;
+        letter-spacing: 0.1rem;
     }
 }
 
-.telegram-group { display:flex; flex-direction:column; gap:0.8rem; width:100%; align-items:center; }
-.badge { font-size:0.75rem; padding:0.25rem 0.8rem; border-radius:20px; background: rgba(120,180,255,0.2); border:1px solid rgba(120,180,255,0.5); letter-spacing:1px; text-transform:uppercase; color:#aeddff; }
+@media (max-width: 360px) {
+    .card {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .link-item a {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .badge {
+        display: block;
+        margin-top: 0.2rem;
+    }
+}
 </style>
 </head>
 <body>
 
-<div class="scale-wrapper">
 <div class="card">
     <div class="handle">
         <div class="handle-top">
@@ -329,23 +394,22 @@ body {
             <span>°</span>
             <span>✧</span>
         </div>
-        
-        <h1>⋆˖⁺loliimilk₊⁺˖⋆</h1>
-        
-        <!-- ОБНОВЛЕНО: волнистый ряд символов -->
+
+        <h1>⋆˖⁺₊loliimilk₊⁺˖⋆</h1>
+
         <div class="handle-bottom">
-            <span class="wave-char">⋆</span>
-            <span class="wave-char">˖</span>
-            <span class="wave-char">⁺</span>
-            <span class="wave-char">‧</span>
-            <span class="wave-char">₊</span>
-            <span class="wave-char">☽</span>
-            <span class="wave-char">☾</span>
-            <span class="wave-char">₊</span>
-            <span class="wave-char">‧</span>
-            <span class="wave-char">⁺</span>
-            <span class="wave-char">˖</span>
-            <span class="wave-char">⋆</span>
+            <span class="star-char">⋆</span>
+            <span class="star-char">˖</span>
+            <span class="star-char">⁺</span>
+            <span class="star-char">‧</span>
+            <span class="star-char">₊</span>
+            <span class="moon-char">☽</span>
+            <span class="moon-char">☾</span>
+            <span class="star-char">₊</span>
+            <span class="star-char">‧</span>
+            <span class="star-char">⁺</span>
+            <span class="star-char">˖</span>
+            <span class="star-char">⋆</span>
         </div>
     </div>
 
@@ -387,7 +451,7 @@ body {
         </div>
 
         <div class="dashed-line"></div>
-        
+
         <div class="support-group">
             <div class="support-label">💗 поддержать автора 💗</div>
             <div class="link-item">
@@ -403,46 +467,24 @@ body {
         </div>
     </div>
 
-    <!-- ОБНОВЛЕНО: нижняя подпись тоже волнистая -->
     <div class="signature">
-        <span class="wave-char">⋆</span>
-        <span class="wave-char">˖</span>
-        <span class="wave-char">⁺</span>
-        <span class="wave-char">‧</span>
-        <span class="wave-char">₊</span>
-        <span class="wave-char">☽</span>
+        <span class="star-char">⋆</span>
+        <span class="star-char">˖</span>
+        <span class="star-char">⁺</span>
+        <span class="star-char">‧</span>
+        <span class="star-char">₊</span>
+        <span class="moon-char">☽</span>
         <span class="text">тыдыщ</span>
-        <span class="wave-char">☾</span>
-        <span class="wave-char">₊</span>
-        <span class="wave-char">‧</span>
-        <span class="wave-char">⁺</span>
-        <span class="wave-char">˖</span>
-        <span class="wave-char">⋆</span>
+        <span class="moon-char">☾</span>
+        <span class="star-char">₊</span>
+        <span class="star-char">‧</span>
+        <span class="star-char">⁺</span>
+        <span class="star-char">˖</span>
+        <span class="star-char">⋆</span>
     </div>
-</div>
 </div>
 
 <script>
-// Масштаб карточки
-function scaleCard() {
-    const wrapper = document.querySelector('.scale-wrapper');
-    const card = document.querySelector('.card');
-    
-    if (!wrapper || !card) return;
-
-    const vh = window.innerHeight - 40;
-    const vw = window.innerWidth - 20;
-
-    const scaleH = vh / card.offsetHeight;
-    const scaleW = vw / card.offsetWidth;
-
-    const scale = Math.min(scaleH, scaleW, 0.67);
-    wrapper.style.transform = `scale(${scale})`;
-}
-window.addEventListener('load', scaleCard);
-window.addEventListener('resize', scaleCard);
-
-// Анимация кнопок на touch
 const links = document.querySelectorAll('.link-item');
 
 links.forEach(link => {
